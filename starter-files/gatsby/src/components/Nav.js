@@ -1,9 +1,13 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import Logo from './Logo';
 
 const NavStyles = styled.nav`
   margin-bottom: 3rem;
+  .log {
+    transform: translateY(-25%);
+  }
   ul {
     margin: 0;
     padding: 0;
@@ -14,6 +18,8 @@ const NavStyles = styled.nav`
     grid-template-columns: 1fr 1fr auto 1fr 1fr;
     grid-gap: 2rem;
     align-items: center;
+
+    margin-top: -6rem;
   }
 
   li {
@@ -39,6 +45,9 @@ const NavStyles = styled.nav`
    &:hover {
      color: var(--red)
    }
+   &[aria-current="page"] {
+     color: var(--red)
+   }
  }
 `;
 
@@ -53,7 +62,9 @@ export default function Nav() {
           <Link to="/pizzas">Pizza Menu</Link>
         </li>
         <li>
-          <Link to="/">LOGO</Link>
+          <Link to="/">
+            <Logo />
+          </Link>
         </li>
         <li>
           <Link to="/slicemasters">Slicemasters</Link>

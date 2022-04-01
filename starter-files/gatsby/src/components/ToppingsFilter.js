@@ -56,6 +56,7 @@ function countPizzasInToppings(pizzas) {
 }
 
 export default function ToppingsFilter(props) {
+  console.log({ filterProps: props });
   const { activeTopping } = props;
   // Get a list of all toppings
   // Get a list of all pizzas with their toppings
@@ -89,13 +90,13 @@ export default function ToppingsFilter(props) {
     <ToppingsStyles>
       <Link to="/pizzas">
         <span className="name">All</span>
-        <span className="count">{pizzas.nodes}</span>
+        <span className="count">{pizzas.length}</span>
       </Link>
       {toppingsWithCounts.map((topping) => (
         <Link
-          to={`topping/${topping.name}`}
+          to={`/topping/${topping.name}`}
           key={topping.id}
-          className={topping.name === activeTopping.name ? 'active' : ''}
+          className={topping.name === activeTopping?.name ? 'active' : ''}
         >
           <span className="name">{topping.name}</span>
           <span className="count">{topping.count}</span>

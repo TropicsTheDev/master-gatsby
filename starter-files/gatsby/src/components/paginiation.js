@@ -38,13 +38,13 @@ export default function Pagination(props) {
   return (
     <PaginationStyles>
       <Link to={`/${base}/${currentPage - 1}`} disabled={!hasPrevPage}>
-        &ShortLeftArrow; Prev
+        ← Prev
       </Link>
       {Array.from({ length: totalPages }, (_, i) => (
         <Link to={`/${base}/${i > 0 ? i + 1 : ''}`}>{i + 1}</Link>
       ))}
       <Link to={`/${base}/${currentPage + 1}`} disabled={!hasNextPage}>
-        Next &rightarrow;
+        Next →
       </Link>
     </PaginationStyles>
   );

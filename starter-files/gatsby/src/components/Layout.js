@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Footer from './Footer';
-import Nav from './Nav';
 import 'normalize.css';
+import Nav from './Nav';
+import Footer from './Footer';
 import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import stripes from '../assets/images/stripes.svg';
@@ -31,7 +31,7 @@ const ContentStyles = styled.div`
 export default function Layout(props) {
   const { children } = props;
   return (
-    <div>
+    <>
       <GlobalStyles />
       <Typography />
       <SiteBorderStyles>
@@ -41,6 +41,6 @@ export default function Layout(props) {
           <Footer />
         </ContentStyles>
       </SiteBorderStyles>
-    </div>
+    </>
   );
 }

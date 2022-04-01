@@ -36,7 +36,7 @@ export default function BeersPage(props) {
       </h2>
       <BeerGridStyles>
         {beers.map((beer) => {
-          const rating = Math.round(beer.rating.average);
+          const rating = Math.round(beer.rating ? beer.rating.average : 0);
           return (
             <BeerStyles key={beer.id}>
               <img src={beer.img} alt={beer.name} />
@@ -47,7 +47,7 @@ export default function BeersPage(props) {
                 <span style={{ filter: 'grayscale(100%)' }}>
                   {`⭐`.repeat(5 - rating)}
                 </span>
-                <span>({beer.rating.reviews})</span>
+                <span>({beer.rating ? beer.rating.reviews : 0})</span>
               </p>
             </BeerStyles>
           );

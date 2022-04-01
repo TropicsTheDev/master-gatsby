@@ -10,6 +10,7 @@ export default function PizzasPage(props) {
     },
     pageContext: { topping },
   } = props;
+  console.log({ topping });
   return (
     <>
       <ToppingsFilter activeTopping={topping} />
@@ -19,14 +20,13 @@ export default function PizzasPage(props) {
 }
 
 export const query = graphql`
-  query($toppingRegex: String) {
+  query PizzaQuery($toppingRegex: String) {
     pizzas: allSanityPizza(
-      filter: { toppings: { elmMatch: { name: { regex: $toppingRegex } } } }
+      filter: { toppings: { elemMatch: { name: { regex: $toppingRegex } } } }
     ) {
       nodes {
-        id
         name
-        price
+        id
         slug {
           current
         }
@@ -36,6 +36,9 @@ export const query = graphql`
         }
         image {
           asset {
+            fixed(width: 600, height: 200) {
+              ...GatsbySanityImageFixed
+            }
             fluid(maxWidth: 400) {
               ...GatsbySanityImageFluid
             }

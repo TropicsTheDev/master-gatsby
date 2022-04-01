@@ -52,6 +52,7 @@ export default function SlicemastersPage(props) {
         totalCount={totalCount}
         currentPage={pageContext.currentPage || 1}
         skip={pageContext.skip}
+        base="slicemasters"
       />
       <SlicemasterGrid>
         {slicemasters.map((person) => (

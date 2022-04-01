@@ -30,9 +30,9 @@ export default function SinglePizzaPage(props) {
 
 export const query = graphql`
   query($slug: String!) {
-    pizza: sanityPizza {
-      id
+    pizza: sanityPizza(slug: { current: { eq: $slug } }) {
       name
+      id
       image {
         asset {
           fluid(maxWidth: 800) {
